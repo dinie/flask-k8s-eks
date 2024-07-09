@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jwt-simple-api
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: jwt-simple-api
+  template:
+    metadata:
+      labels:
+        app: jwt-simple-api
+    spec:
+      containers:
+      - image: 975050271523.dkr.ecr.ap-southeast-2.amazonaws.com/myapp:1
+        name: jwt-simple-api
+        ports:
+        - containerPort: 80
